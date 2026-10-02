@@ -21,5 +21,3 @@ def load_inventory():
 print("============================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("============================")
-
-print(load_inventory())
