@@ -20,7 +20,11 @@ def load_inventory():
         print("Warning: inventory.json not found. Returning empty inventory.")
         return {}
 
-            
+def save_inventory(inventory):
+    with open('inventory.json', 'w') as file:
+        for item in inventory:
+            file.write(str(item)+ '\n')
+                       
 def display_all(inventory):
     print("Current Inventory")
     print("-" * 50)
