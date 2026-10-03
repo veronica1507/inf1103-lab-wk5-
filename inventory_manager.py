@@ -25,11 +25,11 @@ def display_all(inventory):
     print("-" * 50)
     inventory_list = inventory["products"]  #Access the list inside 'products'
     for product in inventory_list:
-        item_id = product["ID"]
+        id = product["ID"]
         name = product["Name"]
         price = product["Price"]
         stock = product ["Stock"]
-        print(f"ID: {item_id} | Name: {name} | Price: {price} | Stock: {stock} ")
+        print(f"ID: {id} | Name: {name} | Price: {price} | Stock: {stock} ")
     print("-" * 50)
 
 def add_stock(inventory):
@@ -48,6 +48,29 @@ def add_stock(inventory):
     inventory["products"].append(new_product)
     print("Product added successfully !")
 
+def update_stock(inventory):
+    item_id = input("Product ID: ")
+    inventory_list = inventory["products"]
+    for product in inventory_list:
+        if item_id == product["ID"]:
+            print("Product Found")
+            name = product["Name"]
+            stock = product ["Stock"]
+            print(f"Name: {name}")
+            print(f"Current stock: {stock}")
+            new_stock = int(input("New Stock Quantity: "))
+            product['Stock'] = new_stock
+            print("Stock updated successfully")
+
+        else:
+            print("Not found")
+
+
+
+
+
+
+
 print("============================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("============================")
@@ -58,4 +81,5 @@ menu()
 inventory = load_inventory()
 print()
 display_all(inventory)
-add_stock(inventory)
+#add_stock(inventory)
+update_stock(inventory)
