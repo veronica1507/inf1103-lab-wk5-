@@ -22,8 +22,7 @@ def load_inventory():
 
 def save_inventory(inventory):
     with open('inventory.json', 'w') as file:
-        for item in inventory:
-            file.write(str(item)+ '\n')
+            json.dump(inventory, file, indent=4)
     print("Saving inventory.....")
     print("Inventory saved successfully to inventory.json")
 
@@ -41,7 +40,7 @@ def display_all(inventory):
 
 def add_stock(inventory):
     item_id = input("Product ID: ")
-    product_name = input("Product Name")
+    product_name = input("Product Name: ")
     price = float(input("Price: "))
     stock = int(input("Stock Quantity: "))
 
@@ -114,9 +113,8 @@ while option != 6:
         save_inventory(inventory)
 
     option = int(input("Enter Option: ")) 
-     
+
 print("Saving inventory before exit....")
 save_inventory(inventory)
-print("Inventory saved successfully")
 print("Thank You for using Inventory Management System")
 print("Program terminated")
