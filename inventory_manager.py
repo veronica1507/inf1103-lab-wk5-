@@ -20,6 +20,7 @@ def load_inventory():
         print("Warning: inventory.json not found. Returning empty inventory.")
         return {}
 
+            
 def display_all(inventory):
     print("Current Inventory")
     print("-" * 50)
@@ -65,10 +66,24 @@ def update_stock(inventory):
         else:
             print("Not found")
 
-
-
-
-
+def search_product(inventory):
+    item_id = input("Product ID: ")
+    inventory_list = inventory["products"]
+    for product in inventory_list:
+        if item_id == product["ID"]:
+            print("Product Found")
+            print("-" * 50)
+            id = product["ID"]
+            name = product["Name"]
+            price = product["Price"]
+            stock = product ["Stock"]
+            print(f"ID: {id}")
+            print(f"Name: {name}")
+            print(f"Price: {price}")
+            print(f"Stock: {stock}")
+            print("-" * 50)
+        else:
+            print("Product not found")
 
 
 print("============================")
@@ -82,4 +97,5 @@ inventory = load_inventory()
 print()
 display_all(inventory)
 #add_stock(inventory)
-update_stock(inventory)
+#update_stock(inventory)
+search_product(inventory)
